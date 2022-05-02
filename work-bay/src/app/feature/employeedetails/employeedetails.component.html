@@ -1,0 +1,81 @@
+<div class="w-100" meta charset="UTF-8">
+    <div class="modal-header">
+        <h4 class="modal-title my-0" id="modal-basic-title">{{this.action}} employee</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+      </div>
+      <div class="modal-body">
+          <div>
+            <form class="form-inline form-control" >
+                <div class="form-group mb-2">
+                  <label for="ID" class="sr-only">ID</label>
+                  <input type="number" class="form-control" [disabled]="disableId" id="id" (change)=" this.valmessage = '' " [(ngModel)]="eid" name="eid">
+                  <span class="text-danger" *ngIf="this.valmessage != ''">{{this.valmessage}}</span>
+                </div>
+                <div class="form-group  mb-2">
+                    <label for="Name"  class="sr-only">Name</label>
+                    <input type="text"  class="form-control" id="Name" (focus)=" this.Enamevalmessage = '' " [(ngModel)]="Ename" name="Ename"  >
+                    <span class="text-danger" *ngIf="this.Enamevalmessage != ''">{{this.Enamevalmessage}}</span>
+                  </div>
+                  <div class="form-group mb-2">
+                    <label for="City" class="sr-only">City</label>
+                    <input type="text"  class="form-control" id="City" (focus)=" this.Ecityvalmessage = '' " [(ngModel)]="Ecity" name="Ecity">
+                    <span class="text-danger" *ngIf="this.Ecityvalmessage != ''">{{this.Ecityvalmessage}}</span>
+                  </div>
+                 
+                  <div class="form-group mb-2">
+                    <label for="leaves" class="sr-only">leaves</label>
+                    <input type="text"  class="form-control" id="leaves" (focus)=" this.Eleavesvalmessage = '' " [(ngModel)]="Eleaves" name="Eleaves">
+                    <span class="text-danger" *ngIf="this.Eleavesvalmessage != ''">{{this.Eleavesvalmessage}}</span>
+                  </div>
+                 
+                  <div class="form-group mb-2">
+                    <label for="employementstatus" class="sr-only">Employement Status</label>
+                    <select class="form-select" aria-label="Default select example" (change)=" this.Estatusvalmessage = '' " [(ngModel)]="Estatus" name="Estatus">
+                      <option value="" ></option>
+                      <option value="1" >Active</option>
+                      <option value="0"  >Inactive</option>
+                    </select>
+                    <span class="text-danger" *ngIf="this.Estatusvalmessage != ''">{{this.Estatusvalmessage}}</span> 
+                  </div>
+
+                  <span class="text-danger">*in hours</span>
+                 
+                  <table class="table border rounded ">
+                    <thead>
+                      <tr>
+                       <th>WeekId</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                        <td><input type="number" [(ngModel)]="WeekId" name="WeekId" (focus)=" this.weekidvalmessage = '' " ></td>
+                        <td><input type="number" [(ngModel)]="Monday" name="Monday"  ></td>
+                        <td><input type="number" [(ngModel)]="Tuesday" name="Tuesday" /></td>
+                        <td><input type="number" [(ngModel)]="Wednesday" name="Wednesday" ></td>
+                        <td><input type="number" [(ngModel)]="Thursday" name="Thursday" ></td>
+                        <td><input type="number" [(ngModel)]="Friday" name="Friday" ></td>
+                        <td><input type="number" [(ngModel)]="Saturday" name="Saturday" ></td>
+                        <td><input type="number" [(ngModel)]="Sunday" name="Sunday" ></td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <span class="text-danger" *ngIf="this.weekidvalmessage != ''">{{this.weekidvalmessage}}</span>
+                  <span class="text-danger" *ngIf="this.workHoursValMessage != ''">{{this.workHoursValMessage}}</span>
+              </form>
+              <div class="modal-footer">
+                <button type="button" *ngIf="this.action == 'Add'"  class="btn btn-primary my-2" (click)="Addemployee()">Add</button>
+                <button type="button"*ngIf="this.action == 'Edit'" class="btn btn-primary my-2" (click)="Updateemployee()">Update</button>
+                <button type="button" class="btn btn-danger my-2" (click)="closePopup()">Cancel</button>
+              </div>
+          </div>
+      </div>
+</div>

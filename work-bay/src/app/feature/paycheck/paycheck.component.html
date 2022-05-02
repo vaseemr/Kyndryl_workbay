@@ -1,0 +1,50 @@
+<div class="w-100" meta charset="UTF-8">
+    <div class="modal-header">
+        <h4 class="modal-title my-0" id="modal-basic-title">Employee Report</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+      </div>
+      <div class="modal-body mat-card">
+<table class="border w-50 mb-5">
+    <thead class="border-bottom-2">
+        <tr ><h3 class="my-0">Attendance Report</h3></tr>
+    </thead>
+    <tr>
+        <td class="w-60">No of hours worked</td>
+        <td class="w-60">{{this.data.weeklyschedule}}</td>
+    </tr>
+    <tr>
+        <td>No of hours on leave</td>
+        <td>{{this.data.leaves}}</td>
+    </tr>
+</table>
+<table class="border w-50">
+<thead class="border-bottom-2">
+    <tr ><h3 class="my-0">Salary Report</h3></tr>
+</thead>
+<tr>
+    <td>Base salary per hour</td>
+    <td>{{this.basesalary}}</td>
+</tr>
+<tr>
+    <td>inhand</td>
+    <td>{{this.data.weeklyschedule}} * {{this.basesalary}} = {{this.inhand}}</td>
+</tr>
+<tr>
+    <td>HRA</td>
+    <td> {{this.HRA}}</td>
+</tr>
+<tr>
+    <td>Food Allowance</td>
+    
+    <td>{{this.Foodallowance}}</td>
+</tr>
+
+<tr class="fw-600" >
+    <td >Total</td>
+    <td>{{this.Total}}</td>
+</tr>
+</table>
+
+
+      </div>
+</div>

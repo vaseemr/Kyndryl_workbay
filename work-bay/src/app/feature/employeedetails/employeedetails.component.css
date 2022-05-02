@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  td input{
+    width: 70px;
+  }
+  h4{
+    font-size: large;
+    font-weight: 500;
+}
+  

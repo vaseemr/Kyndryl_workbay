@@ -1,0 +1,26 @@
+{
+  "name": "workbay",
+  "version": "1.0.0",
+  "description": "Node.js Restful express mysql",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql",
+    "restapi"
+  ],
+  "author": "vaseem",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.3.1",
+    "mysql2": "^2.3.3",
+    "req-flash": "^0.0.3"
+  }
+}

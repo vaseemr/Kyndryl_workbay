@@ -1,0 +1,103 @@
+<header>
+    <mat-toolbar color="primary" >
+    <div class="width100"><span class="example-spacer"><h1>Work-Bay</h1></span></div>
+  </mat-toolbar>
+</header>
+<div class="mat-container">
+  <mat-card>
+    <mat-card-title class="my-4">Employee Table</mat-card-title>
+    <mat-card-content>
+      <button type="button" class="btn btn-success my-2" (click)="Addemployee()">Add</button>
+      <button type="button" class="btn btn-success my-2 mx-2" (click)="getallData()">Refresh</button>
+      <table mat-table
+      [dataSource]="dataSource" multiTemplateDataRows
+      class="mat-elevation-z8">
+ <ng-container matColumnDef="Id" >
+  <th mat-header-cell *matHeaderCellDef>ID</th>
+  <td mat-cell *matCellDef="let element">{{element.Id}}</td>
+</ng-container>
+<ng-container matColumnDef="Name" >
+  <th mat-header-cell *matHeaderCellDef>Name</th>
+  <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+</ng-container>
+<ng-container matColumnDef="City" >
+  <th mat-header-cell *matHeaderCellDef> City</th>
+  <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+</ng-container>
+<ng-container matColumnDef="leaves" >
+  <th mat-header-cell *matHeaderCellDef> leaves</th>
+  <td mat-cell *matCellDef="let element"> {{element.leaves}} </td>
+</ng-container> 
+<ng-container matColumnDef="employementstatus" >
+  <th mat-header-cell *matHeaderCellDef> employementstatus </th>
+  <td mat-cell *matCellDef="let element"> {{element.employementstatus}} </td>
+</ng-container>
+<ng-container matColumnDef="Edit" >
+  <th mat-header-cell *matHeaderCellDef> Edit </th>
+  <td mat-cell *matCellDef="let element" (click)="editdata($event,element)"> 
+  <button mat-icon-button ><mat-icon> edit</mat-icon></button>  
+  </td>
+</ng-container>
+<ng-container matColumnDef="delete" >
+  <th mat-header-cell *matHeaderCellDef> delete </th>
+  <td mat-cell *matCellDef="let element" (click)="deletedata($event,element)"> 
+    <button mat-icon-button color="warn" ><mat-icon> delete</mat-icon></button>  
+   </td>
+</ng-container>
+<ng-container matColumnDef="weeklyschedule" >
+  <th mat-header-cell *matHeaderCellDef> Generate Report </th>
+  <td mat-cell *matCellDef="let element" (click)="openreport($event,element)"> <button mat-icon-button color="accent" ><mat-icon> mail</mat-icon></button>  </td>
+</ng-container>
+<!-- expandable workschedule column -->
+ <ng-container matColumnDef="expandedDetail">
+   <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+     <div class="example-element-detail"
+          [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+       <div class="w-75 border rounded">
+        <span class="text-danger">*in hours</span>
+         <table class="table ">
+           <thead>
+             <tr>
+              <th>WeekId</th>
+               <th>Monday</th>
+               <th>Tuesday</th>
+               <th>wednesday</th>
+               <th>Thursday</th>
+               <th>Friday</th>
+               <th>Saturday</th>
+               <th>Sunday</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td><input type="number" [(ngModel)]="element.weekid" name="WeekId" readonly></td>
+               <td><input type="number" [(ngModel)]="element.mon" name="Monday" readonly></td>
+               <td><input type="number" [(ngModel)]="element.tue" name="Tuesday" readonly></td>
+               <td><input type="number" [(ngModel)]="element.wed" name="wednesday" readonly></td>
+               <td><input type="number" [(ngModel)]="element.thur" name="Thursday" readonly></td>
+               <td><input type="number" [(ngModel)]="element.fri" name="Friday" readonly></td>
+               <td><input type="number" [(ngModel)]="element.sat" name="Saturday" readonly></td>
+               <td><input type="number" [(ngModel)]="element.sun" name="Sunday" readonly></td>
+             </tr>
+           </tbody>
+         </table>
+         
+       </div>
+       
+     </div>
+   </td>
+ </ng-container>
+
+ <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+ <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+     class="example-element-row"
+     [class.example-expanded-row]="expandedElement === element"
+     (click)="expandedElement = expandedElement === element ? null : element">
+ </tr>
+ <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+<router-outlet></router-outlet>
